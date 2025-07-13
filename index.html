@@ -7,12 +7,17 @@
   <body>
     <div>
       <h1>Blackjack</h1>
-      <h3 id="message"></h3>
+      <h2 id="casino-el"></h2>
+      <h3 id="message-el"></h3>
       <p id="cards-el"></p>
       <p id="sum-el"></p>
       <button onclick="startGame()" id="btn-start">Start Game</button>
       <br />
-      <button onclick="randomCard()" id="btn-card">New Card</button>
+      <button onclick="gameUpdate('player')" id="btn-card" class="hide">
+        New Card
+      </button>
+      <br />
+      <button onclick="stay()" id="btn-stay" class="hide">Stay</button>
     </div>
   </body>
   <script src="index.js"></script>
