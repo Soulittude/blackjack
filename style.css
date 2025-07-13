@@ -1,5 +1,7 @@
 body{
     text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 div{
     margin-top: 20px;
@@ -9,8 +11,8 @@ button{
     margin-top: 20px;
     border: none;
     border-radius: 20px;
-    background-color: darkmagenta;
-    color: white;
+    background-color: yellow;
+    color: black;
     font-weight: bold;
     cursor: pointer;
 }

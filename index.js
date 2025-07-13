@@ -8,8 +8,6 @@ let stayBtn = document.getElementById("btn-stay");
 
 let msg = document.getElementById("message-el");
 
-
-
 let myCards = [];
 let casinoCards = [];
 let mySum = 0;
@@ -30,12 +28,15 @@ function resetGame() {
     casinoCards = [];
     mySum = 0;
     casinoSum = 0;
-    isAlive = true;
+
+    msg.style.backgroundColor = "yellow";
 
     cardsEl.innerText = "";
     sumEl.innerText = "";
     casinoCardsEl.innerText = "";
     msg.innerText = "";
+
+    isAlive = true;
 }
 
 function randomCard() {
@@ -76,11 +77,13 @@ function gameCheck(choose) {
     if (choose === "player") {
         if (mySum === 21) {
             msg.innerText = ("You got a blackjack! You win!");
+            msg.style.backgroundColor = "green";
             isAlive = false;
 
         }
         else if (mySum > 21) {
-            msg.innerText = ("You went over 21! You lose!");
+            msg.innerText = ("You went over 21! You lose...");
+            msg.style.backgroundColor = "red"
             isAlive = false;
         }
         else {
@@ -89,7 +92,8 @@ function gameCheck(choose) {
     }
     else if (choose === "casino" && casinoSum > 20) {
         if (casinoSum === 21) {
-            msg.innerText = ("Casino blackjack! You lost!");
+            msg.innerText = ("Casino blackjack! You lost...");
+            msg.style.backgroundColor = "red";
             isAlive = false;
         }
         else {
@@ -97,11 +101,13 @@ function gameCheck(choose) {
             casinoScore = casinoSum - 21;
 
             if (casinoScore < myScore) {
-                msg.innerText = ("Casino won... You lost!");
+                msg.innerText = ("Casino won... You lost...");
+                msg.style.backgroundColor = "red";
                 isAlive = false
             }
             else {
-                msg.innerText = ("Casino lost... You won");
+                msg.innerText = ("Casino lost! You won!");
+                msg.style.backgroundColor = "green";
                 isAlive = false
             }
         }
