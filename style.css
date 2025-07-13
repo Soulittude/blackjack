@@ -1,0 +1,20 @@
+body{
+    text-align: center;
+}
+div{
+    margin-top: 20px;
+}
+button{
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: darkmagenta;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hide{
+    display: none;
+}

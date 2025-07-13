@@ -2,16 +2,18 @@
 <html>
   <head>
     <title>Blackjack</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Blackjack</h1>
-    <p id="cards-el">Your Cards: </p>
-    <p id="sum-el">Sum: </p>
-    <button onclick="startGame()">Start Game</button>
-    <br />
-    <button onclick="newCard()">New Card</button>
-    <br/>
-    <button onclick="newGame()">New Game</button>
+    <div>
+      <h1>Blackjack</h1>
+      <h3 id="message"></h3>
+      <p id="cards-el"></p>
+      <p id="sum-el"></p>
+      <button onclick="startGame()" id="btn-start">Start Game</button>
+      <br />
+      <button onclick="randomCard()" id="btn-card">New Card</button>
+    </div>
   </body>
   <script src="index.js"></script>
 </html>

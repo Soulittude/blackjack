@@ -1,18 +1,27 @@
 let cardsEl = document.getElementById("cards-el");
 let sumEl = document.getElementById("sum-el");
+let startBtn = document.getElementById("btn-start");
+let cardBtn = document.getElementById("btn-card");
+let msg = document.getElementById("message");
+
+
 let cards = [];
 let sum = 0;
 let isAlive = false;
 
 function startGame() {
-    isAlive = true;
+    resetGame();
     randomCard();
     randomCard();
-    gameCheck();
 }
-function newCard() {
-    randomCard();
-    gameCheck();
+
+function resetGame() {
+    cards = [];
+    sum = 0;
+    isAlive = true;
+    cardsEl.innerText = "";
+    sumEl.innerText = "";
+    msg.innerText = "";
 }
 
 function randomCard() {
@@ -23,35 +32,45 @@ function randomCard() {
     else if (pickCard === 1) {
         pickCard = 11;
     }
-    cards.push(pickCard);
-    sum += pickCard;
-    gameUpdate();
+    gameUpdate(pickCard)
     return pickCard
 }
 
-
-
-function gameUpdate() {
+function gameUpdate(card) {
+    cards.push(card);
+    sum += card;
     cardsEl.innerText = "Your Cards: " + cards;
     sumEl.innerText = "Sum: " + sum;
+    gameCheck();
 }
 
 function gameCheck() {
+    if (cards.length < 2) {
+        return
+    }
     if (sum < 21) {
-        alert("Press new card to get another card");
+        msg.innerText = ("Press new card to get another card");
     }
     else if (sum === 21) {
-        alert("You got a blackjack! You win!");
+        msg.innerText = ("You got a blackjack! You win!");
         isAlive = false;
     }
     else {
-        alert("You went over 21! You lose!");
+        msg.innerText = ("You went over 21! You lose!");
         isAlive = false;
     }
+    aliveCheck()
+    return
 }
 
-function newGame(){
-    cards = [];
-    sum = 0;
-    isAlive = true;
+function aliveCheck() {
+    if (isAlive === false) {
+        startBtn.classList.remove("hide");
+        cardBtn.classList.add("hide");
+    }
+    else {
+        startBtn.classList.add("hide");
+        cardBtn.classList.remove("hide");
+
+    }
 }
